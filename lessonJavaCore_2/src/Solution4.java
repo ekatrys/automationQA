@@ -1,24 +1,15 @@
 import java.util.Arrays;
+import java.util.TreeSet;
 
 public class Solution4 {
     public static void main(String[] arg) {
         String phrase = "Я у мамы программист";
         String[] arrayPhrase = phrase.toLowerCase().replace(" ", "").split("");
-        Arrays.sort(arrayPhrase);
 
-        int index = 0;
-        String result = "";
-        String[] arrayPhraseSortWithoutReepeats = new String[arrayPhrase.length];
+        Arrays.stream(arrayPhrase).distinct().sorted().forEach(System.out::print);
 
-        for (String i : arrayPhrase) {
-            if (!i.equals(result)) {
-                arrayPhraseSortWithoutReepeats[index] = i;
-                result = i;
-                index++;
-            }
-        }
-        String[] arrayPhraseSortWithoutReepeatsAndWithoutNull = Arrays.copyOf(arrayPhraseSortWithoutReepeats, index);
-
-        System.out.println(Arrays.toString(arrayPhraseSortWithoutReepeatsAndWithoutNull));
+//  Так же можно сделать с использованием класса TreeSet
+//        TreeSet<String> arrayPhraseSort = new TreeSet<String>(Arrays.asList(arrayPhrase));
+//        System.out.println(arrayPhraseSort);
     }
 }
