@@ -1,9 +1,9 @@
 class Cat extends Pet implements Fightble {
 
 
-    public Cat(boolean isHasName, String sex, boolean isHasOwner, boolean isHasAdress) {
-        this.isHasName = isHasName;
-        this.sex = sex;
+    public Cat(String name, String sex, boolean isHasOwner, boolean isHasAdress) {
+        this.name = name;
+        sex.valueOf(sex);
         this.isHasOwner = isHasOwner;
         this.isHasAdress = isHasAdress;
     }

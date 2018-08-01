@@ -1,17 +1,12 @@
 abstract class Pet implements Fightble {
 
     String name;
-    String sex;
-    int age;
-    int weight;
-    int power;
-    boolean isHasName;
+    enum sex {};
+    private int age;
+    private int weight;
+    private int power;
     boolean isHasOwner;
     boolean isHasAdress;
-
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
 
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
@@ -22,20 +17,30 @@ abstract class Pet implements Fightble {
     public int getWeight() { return weight; }
     public void setWeight(int weight) { this.weight = weight; }
 
-
     abstract void voice();
 
     public void run() { System.out.println("Могу бегать"); }
     public void eat() { System.out.println("Могу есть"); }
 
     @Override
-    public boolean fight(Pet anotherPet) {
-        int ageResult = this.getAge() < anotherPet.getAge() ? 1 : 0;
-        int weightResult = this.getWeight() > anotherPet.getWeight() ? 1 : 0;
-        int powerResult = this.getPower() > anotherPet.getPower() ? 1 : 0;
+    public Pet fightWinner (Pet anotherPet) throws NullPointerException{
+        int ageResult;
+        int weightResult;
+        int powerResult;
+
+        if (this.getAge() == anotherPet.getAge()) ageResult = 0;
+        else ageResult = this.getAge() < anotherPet.getAge() ? 1 : -1;
+
+        if (this.getWeight() == anotherPet.getWeight()) weightResult = 0;
+        else weightResult = this.getWeight() > anotherPet.getWeight() ? 1 : -1;
+
+        if (this.getPower() == anotherPet.getPower()) powerResult = 0;
+        else powerResult = this.getPower() > anotherPet.getPower() ? 1 : -1;
 
         int resultFight = ageResult + weightResult + powerResult;
-        return resultFight > 2;
+        if (resultFight > 0) return this;
+        else if (resultFight < 0) return anotherPet;
+        else return null;
     }
 }
 
