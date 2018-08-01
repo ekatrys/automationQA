@@ -1,7 +1,7 @@
 abstract class Pet implements Fightble {
 
     String name;
-    enum sex {};
+    enum sex {MALE, FEMALE}
     private int age;
     private int weight;
     private int power;
