@@ -30,14 +30,18 @@ public class Solution {
         Pet[] petsFighters = {CatMale, CatFemale, DogHomeless, DogWithoutName};
         Pet winner = petsFighters[0];
 
+
+        //Драка на вылет
         for (int numberOfPet = 1; numberOfPet < petsFighters.length; numberOfPet++) {
-            System.out.print("Раунд " + (numberOfPet) + "  " + winner.name + " против "
-                    + petsFighters[numberOfPet].name + " закончился");
+            System.out.print("Раунд " + (numberOfPet) + "  " + winner.name + " против " + petsFighters[numberOfPet].name + " закончился");
 
             winner = winner.fightWinner(petsFighters[numberOfPet]);
 
             if (winner != null) System.out.println(" победой " + winner.name);
-            else System.out.println(" в ничью ");
+            else {
+                System.out.println(" в ничью ");
+                winner = petsFighters[numberOfPet];
+            }
         }
     }
 
