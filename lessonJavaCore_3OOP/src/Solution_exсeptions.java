@@ -39,11 +39,3 @@ class Solution_exсeptions {
         }
     }
 }
-
-
-
-
-
-
-
-

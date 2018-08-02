@@ -23,7 +23,7 @@ abstract class Pet implements Fightble {
     public void eat() { System.out.println("Могу есть"); }
 
     @Override
-    public Pet fightWinner (Pet anotherPet) throws NullPointerException{
+    public Pet fightWinner (Pet anotherPet) {
         int ageResult;
         int weightResult;
         int powerResult;
