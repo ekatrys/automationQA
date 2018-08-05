@@ -1,3 +1,3 @@
 interface Fightble {
-    boolean fight(Pet anotherPet);
+    Pet fightWinner(Pet anotherPet);
 }

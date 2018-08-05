@@ -1,7 +1,7 @@
 class Dog extends Pet implements Fightble  {
 
-    public Dog(boolean isHasName, boolean isHasAdress) {
-        this.isHasName = isHasName;
+    public Dog(String name, boolean isHasAdress) {
+        this.name = name;
         this.isHasAdress = isHasAdress;
     }
 
