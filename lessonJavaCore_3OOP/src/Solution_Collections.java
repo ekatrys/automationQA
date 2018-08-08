@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 class AnimalInShelter {
 
-    public static Pet addRandomAnimal(int numberAnimal) {
+    static Pet addRandomAnimal(int numberAnimal) {
         Pet obj = null;
         int randomNumber = new Random().nextInt(2);
         int randomNumberColors = new Random().nextInt(4);
@@ -18,20 +18,19 @@ class AnimalInShelter {
         return obj;
     }
 
-    public static void getRandomAnimal(ArrayList<Pet> animalShelterList) {
+    static void randomAnimal(ArrayList<Pet> animalShelterList) {
         int numberAnimal = animalShelterList.size();
         int randomNumber = new Random().nextInt(numberAnimal);
         Collections.shuffle(animalShelterList);
         System.out.println("Вы взяли " + getAnimalType(animalShelterList.get(randomNumber).getClass().toString())
                 + " с именем " + animalShelterList.get(randomNumber).name);
-        animalShelterList.remove(randomNumber);
     }
 
-    public static void getAnimalWithParametrs(ArrayList<Pet> animalShelterList, String type, Pet.colors color) {
+    static void animalWithParametrs(ArrayList<Pet> animalShelterList, String type, Pet.colors color) {
         String needPet = animalShelterList.stream().
                 filter(p -> p.getClass().toString().equals(type) && p.color == color).findFirst().map(Pet::getName).
                 orElse("нет кого");
-        System.out.println("Вы хотите " + getAnimalType(type) + " " + color + " цвета ") ;
+        System.out.println("Вы хотите " + getAnimalType(type) + " " + color + " цвета ");
         System.out.println("У нас для вас " + needPet);
     }
 
@@ -48,14 +47,16 @@ public class Solution_Collections {
         System.out.println("Введите колличество мест в вашем приюте:");
         Scanner reader = new Scanner(System.in);
         int inputCharInt = reader.nextInt();
+        if (inputCharInt != 0) {
 
-        ArrayList<Pet> animalShelterList = new ArrayList();
-        int n = 0;
+            ArrayList<Pet> animalShelterList = new ArrayList();
+            int n = 0;
 
-        for (int i = 0; i < inputCharInt; i++) {
-            animalShelterList.add(AnimalInShelter.addRandomAnimal(n++));
-        }
-        AnimalInShelter.getRandomAnimal(animalShelterList);
-        AnimalInShelter.getAnimalWithParametrs(animalShelterList, "class Dog", Pet.colors.BLACK);
+            for (int i = 0; i < inputCharInt; i++) {
+                animalShelterList.add(AnimalInShelter.addRandomAnimal(n++));
+            }
+            AnimalInShelter.randomAnimal(animalShelterList);
+            AnimalInShelter.animalWithParametrs(animalShelterList, "class Dog", Pet.colors.BLACK);
+        } else System.out.println("Ваш приют пуст");
     }
 }
