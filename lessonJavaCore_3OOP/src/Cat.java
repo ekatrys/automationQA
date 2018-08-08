@@ -7,6 +7,11 @@ class Cat extends Pet implements Fightble {
         this.isHasAdress = isHasAdress;
     }
 
+    public Cat(String name, colors color) {
+        this.name = name;
+        this.color = color;
+    }
+
     void voice() {
         System.out.println("Мяу");
     }

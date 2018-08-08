@@ -7,6 +7,12 @@ abstract class Pet implements Fightble {
     private int power;
     boolean isHasOwner;
     boolean isHasAdress;
+    public enum colors {ORANGE, RED, WHITE, BLACK}
+    colors color;
+
+    public String getName() {
+        return name;
+    }
 
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
